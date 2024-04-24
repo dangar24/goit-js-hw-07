@@ -9,8 +9,8 @@ const createBtn = document.querySelector("button[data-create]");
 const destroyBtn = document.querySelector("button[data-destroy]");
 const fatherBox = document.querySelector("#boxes");
 const childBox = document.createElement("div");
-let step = 30;
 let inputResult = 0;
+
 
 const giveValue = (event) => {
     const inputValue = event.target.value;
@@ -32,6 +32,7 @@ destroyBtn.addEventListener("click", destroyBoxes);
 
 const createBoxes = (event) => {
     destroyBoxes();
+    let step = 30;
     for (let i = 1; i <= inputResult; i += 1) {
         const createDiv = document.createElement("div");
         createDiv.style.width = `${step}px`;
@@ -43,7 +44,7 @@ const createBoxes = (event) => {
     fatherBox.append(childBox);
     inputResult = 0;
     step = 30;
-    event.currentTarget.reset();
+    inputEL.value = ""
 };
 createBtn.addEventListener("click", createBoxes);
 
